@@ -37,8 +37,20 @@ export class AppComponent {
     }
   }
 
-  formatText(text: string) {
-    const result = text.replaceAll('*', '');
-    return result;
-  }
+  formatText(text: string): string {
+  // Escapa caracteres HTML para evitar XSS
+  text = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+  // Substitui trechos de código formatados com ``` e adiciona uma classe 'code-block'
+  text = text.replace(/```(.*?)```/gs, "<pre class='code-block'><code>$1</code></pre>");
+
+  // Insere uma quebra de linha antes de cada asterisco duplo
+  text = text.replace(/\*\*/g, '\n**');
+
+  // Insere uma quebra de linha antes de cada número
+  text = text.replace(/(\d+)/g, '\n$1');
+
+  return text;
+}
+
 }

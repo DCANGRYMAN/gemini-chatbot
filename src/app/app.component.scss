@@ -4,6 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    font-family: 'Open Sans', sans-serif;
   }
   
   .chat-container {
@@ -77,29 +78,39 @@ body {
   }
   
   .messages {
-    padding-bottom: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1098039216);
-    padding: 10px;
     border-radius: 10px;
     font-size: 15px;
     line-height: 2;
     font-style: normal;
-    margin-bottom: 10px;
-    font-family: Arial, Helvetica, sans-serif;
   }
   
   .blue {
-    color: whitesmoke;
-    background: rgba(128, 128, 128, 0.0901960784);
+    color: darkturquoise;
+    // background: rgba(128, 128, 128, 0.0901960784);
     
   }
   
   .green {
     color: white;
-    background:darkslateblue;
+    // background:darkslateblue;
+    // background: rgba(199, 175, 255, 0.307);
   }
   
   #send-button:disabled {
     background-color: grey;
     cursor:not-allowed;
   }
+
+  ::ng-deep pre.code-block {
+    background-color: rgba(0, 0, 0, 0.7); // Fundo preto com transparência
+    color: #fff; // Texto branco para melhor leitura
+    padding: 10px; // Espaçamento interno para melhor estética
+    border-radius: 5px; // Bordas arredondadas
+    border: 1px solid darkturquoise;
+    font-size: 11px;
+  }
+  
+    .code-block p {
+        margin: 0; // Remover margem padrão do parágrafo
+    }  
